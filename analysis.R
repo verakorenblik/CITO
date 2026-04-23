@@ -139,6 +139,16 @@ tt$booklets
 tt$items %>%
   arrange(rir) # Check if some items are exceptionally low
 
+tt$items %>%
+  dplyr::group_by(booklet_id) %>%
+  dplyr::summarise(
+    min_rir = min(rir, na.rm = TRUE),
+    max_rir = max(rir, na.rm = TRUE),
+    min_rit = min(rit, na.rm = TRUE),
+    max_rit = max(rit, na.rm = TRUE),
+    .groups = "drop"
+  )
+
 # Mean test scores per booklet
 tt$booklets %>%
   dplyr::select(booklet_id, mean_booklet_score) %>%
