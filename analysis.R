@@ -259,7 +259,7 @@ svg(file.path(wd, "/profile_plot.svg"),
   height = 19.05 / 2.54
 )
 
-profile_plot(db, item_property = "domain", covariate = "gender")
+profile_plot(db, item_property = "domain", covariate = "gender", predicate = booklet_id == "booklet_1"|"booklet_2")
 
 dev.off()
 
